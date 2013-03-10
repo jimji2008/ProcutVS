@@ -1,0 +1,9 @@
+http://api.appinions.com/search/v2/opinions?appkey=7xy57wqjagxhxm5pg6jvwur3&topics=intel&rows=5&format=xml
+
+
+
+http://api.appinions.com/search/v2/opinions?appkey=<appkey>&sent=France AND Paris&polarity=-1
+
+
+
+http://api.appinions.com/search/v2/opinions?appkey=7xy57wqjagxhxm5pg6jvwur3&topics=Sony Cyber-shot 16.2-Megapixel Digital Camera - Black&doc_text=Sony Cyber-shot 16.2-Megapixel Digital Camera - Black&rows=5&format=xml

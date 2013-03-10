@@ -1,0 +1,3 @@
+﻿User-agent: *
+Disallow:
+Sitemap: http://www.productvs.net/sitemap.xml

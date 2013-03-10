@@ -1,0 +1,758 @@
+[Header]
+2011-07-11 14:49:04,382 ERROR( 5) ProductVS - Amazon Error
+System.ServiceModel.CommunicationException: Error in deserializing body of reply message for operation 'ItemLookup'. ---> System.InvalidOperationException: There is an error in XML document (1, 17863). ---> System.Xml.XmlException: The maximum string content length quota (8192) has been exceeded while reading XML data. This quota may be increased by changing the MaxStringContentLength property on the XmlDictionaryReaderQuotas object used when creating the XML reader. Line 1, position 17863.
+   at System.Xml.XmlExceptionHelper.ThrowXmlException(XmlDictionaryReader reader, String res, String arg1, String arg2, String arg3)
+   at System.Xml.XmlExceptionHelper.ThrowMaxStringContentLengthExceeded(XmlDictionaryReader reader, Int32 maxStringContentLength)
+   at System.Xml.XmlDictionaryReader.ReadString(Int32 maxStringContentLength)
+   at System.Xml.XmlDictionaryReader.ReadString()
+   at System.Xml.XmlBaseReader.ReadElementString()
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderAWSECommerceServicePortType.Read111_EditorialReview(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderAWSECommerceServicePortType.Read138_Item(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderAWSECommerceServicePortType.Read142_Items(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderAWSECommerceServicePortType.Read145_ItemLookupResponse(Boolean isNullable, Boolean checkType)
+   at Microsoft.Xml.Serialization.GeneratedAssembly.XmlSerializationReaderAWSECommerceServicePortType.Read247_Item()
+   at Microsoft.Xml.Serialization.GeneratedAssembly.ArrayOfObjectSerializer21.Deserialize(XmlSerializationReader reader)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   --- End of inner exception stack trace ---
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle, XmlDeserializationEvents events)
+   at System.Xml.Serialization.XmlSerializer.Deserialize(XmlReader xmlReader, String encodingStyle)
+   at System.ServiceModel.Dispatcher.XmlSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, XmlSerializer serializer, MessagePartDescription returnPart, MessagePartDescriptionCollection bodyParts, Object[] parameters, Boolean isRequest)
+   --- End of inner exception stack trace ---
+
+Server stack trace: 
+   at System.ServiceModel.Dispatcher.XmlSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, XmlSerializer serializer, MessagePartDescription returnPart, MessagePartDescriptionCollection bodyParts, Object[] parameters, Boolean isRequest)
+   at System.ServiceModel.Dispatcher.XmlSerializerOperationFormatter.DeserializeBody(XmlDictionaryReader reader, MessageVersion version, String action, MessageDescription messageDescription, Object[] parameters, Boolean isRequest)
+   at System.ServiceModel.Dispatcher.OperationFormatter.DeserializeBodyContents(Message message, Object[] parameters, Boolean isRequest)
+   at System.ServiceModel.Dispatcher.OperationFormatter.DeserializeReply(Message message, Object[] parameters)
+   at System.ServiceModel.Dispatcher.ProxyOperationRuntime.AfterReply(ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   at System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs)
+   at System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   at System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   at System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   at System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   at ProcutVS.Amazon.ECS.AWSECommerceServicePortType.ItemLookup(ItemLookupRequest1 request)
+   at ProcutVS.Amazon.ECS.AWSECommerceServicePortTypeClient.ProcutVS.Amazon.ECS.AWSECommerceServicePortType.ItemLookup(ItemLookupRequest1 request) in C:\work\test\ProcutVS\ProcutVS\Service References\Amazon.ECS\Reference.cs:line 29766
+   at ProcutVS.Amazon.ECS.AWSECommerceServicePortTypeClient.ItemLookup(ItemLookup ItemLookup1) in C:\work\test\ProcutVS\ProcutVS\Service References\Amazon.ECS\Reference.cs:line 29772
+   at ProcutVS.AmazonFiller.Do(Product product) in C:\work\test\ProcutVS\ProcutVS\AmazonFiller.cs:line 75
+[Footer]
+[Header]
+2011-07-11 20:54:36,256 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:39,640 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:40,180 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:40,719 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:43,100 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:43,635 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:44,161 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:44,693 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:45,223 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+2011-07-11 20:54:45,750 ERROR( 5) ProductVS - DataAccess ReadCategories Error
+System.IO.FileNotFoundException: Could not find file 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'.
+File name: 'C:\work\test\ProcutVS\ProductVSWeb\var\CategoriesArchive.xml'
+   at System.IO.__Error.WinIOError(Int32 errorCode, String maybeFullPath)
+   at System.IO.FileStream.Init(String path, FileMode mode, FileAccess access, Int32 rights, Boolean useRights, FileShare share, Int32 bufferSize, FileOptions options, SECURITY_ATTRIBUTES secAttrs, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options, String msgPath, Boolean bFromProxy)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize, FileOptions options)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding, Boolean detectEncodingFromByteOrderMarks, Int32 bufferSize)
+   at System.IO.StreamReader..ctor(String path, Encoding encoding)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at ProcutVS.DataAccess.ReadCategories() in C:\work\test\ProcutVS\ProcutVS\DataAccess.cs:line 116
+[Footer]
+[Header]
+2011-07-11 20:58:45,993 ERROR( 5) ProductVS - vs Page
+System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2) in C:\work\test\ProcutVS\ProcutVS\AttributeComparer.cs:line 558
+   at ProcutVS.SmartVSValue.Comparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2) in C:\work\test\ProcutVS\ProcutVS\AttributeComparer.cs:line 520
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs) in C:\work\test\ProcutVS\ProcutVS\AttributeComparer.cs:line 18
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 241
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-07-11 21:05:26,766 ERROR( 5) ProductVS - vs Page
+System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2)
+   at ProcutVS.SmartVSValue.Comparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2)
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs)
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 241
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-07-11 21:07:03,522 ERROR( 7) ProductVS - vs Page
+System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2)
+   at ProcutVS.SmartVSValue.Comparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2)
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs)
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 241
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-07-11 21:07:47,619 ERROR( 8) ProductVS - vs Page
+System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 591
+   at ProcutVS.SmartVSValue.Comparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 553
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 18
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 241
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-07-11 21:11:51,314 ERROR( 7) ProductVS - vs Page
+System.ArgumentNullException: Value cannot be null.
+Parameter name: key
+   at System.ThrowHelper.ThrowArgumentNullException(ExceptionArgument argument)
+   at System.Collections.Generic.Dictionary`2.FindEntry(TKey key)
+   at System.Collections.Generic.Dictionary`2.ContainsKey(TKey key)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 591
+   at ProcutVS.SmartVSValue.Comparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 553
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 18
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 241
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-07-14 15:26:04,063 ERROR( 6) ProductVS - vs Page
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at HTMLGenerator.GetCategoryNavHtml(IEnumerable`1 catePaths) in c:\work\test\ProcutVS\ProductVSWeb\App_Code\HTMLGenerator.cs:line 83
+   at VS.Page_Load(Object sender, EventArgs e) in c:\work\test\ProcutVS\ProductVSWeb\VS.aspx.cs:line 41
+2011-07-14 15:27:32,178 ERROR( 5) ProductVS - vs Page
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at HTMLGenerator.GetCategoryNavHtml(IEnumerable`1 catePaths) in c:\work\test\ProcutVS\ProductVSWeb\App_Code\HTMLGenerator.cs:line 83
+   at VS.Page_Load(Object sender, EventArgs e) in c:\work\test\ProcutVS\ProductVSWeb\VS.aspx.cs:line 41
+[Footer]
+[Header]
+2011-07-14 15:28:16,448 ERROR( 6) ProductVS - vs Page
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at VS.PrintVSSummary(Product product1, Product product2) in c:\work\test\ProcutVS\ProductVSWeb\VS.aspx.cs:line 225
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in c:\work\test\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in c:\work\test\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-07-19 21:46:52,938 ERROR( 9) ProductVS - vs Page - http://localhost:82/VS.aspx?upc1=085854019064&upc2=085854218030&p1=Case+Logic+16-Disc+CD+Wallet&p2=Case+Logic+Cup+Holder+Organizer+-+Black
+System.ArgumentNullException: Value cannot be null.
+Parameter name: input
+   at System.Text.RegularExpressions.Regex.IsMatch(String input)
+   at VSCommon.IsNumber(String str) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 95
+   at VSCommon.PrintDiffLine(DiffPiece line) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 68
+   at VSCommon.PrintDiff2Values(String value1, String value2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 39
+   at VS.PrintProductVSLine(VSLine vsLine, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 329
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, String cssStyle, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 293
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 288
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 82
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-07-19 21:48:17,537 ERROR( 9) ProductVS - vs Page - http://localhost:82/VS.aspx?upc1=085854019064&upc2=085854218030&p1=Case+Logic+16-Disc+CD+Wallet&p2=Case+Logic+Cup+Holder+Organizer+-+Black
+System.ArgumentNullException: Value cannot be null.
+Parameter name: input
+   at System.Text.RegularExpressions.Regex.IsMatch(String input)
+   at VSCommon.IsNumber(String str) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 95
+   at VSCommon.PrintDiffLine(DiffPiece line) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 68
+   at VSCommon.PrintDiff2Values(String value1, String value2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 39
+   at VS.PrintProductVSLine(VSLine vsLine, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 329
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, String cssStyle, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 293
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 288
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 82
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-07-19 21:49:34,693 ERROR( 5) ProductVS - vs Page - http://localhost:82/VS.aspx?upc1=085854019064&upc2=085854218030&p1=Case+Logic+16-Disc+CD+Wallet&p2=Case+Logic+Cup+Holder+Organizer+-+Black
+System.ArgumentNullException: Value cannot be null.
+Parameter name: input
+   at System.Text.RegularExpressions.Regex.IsMatch(String input)
+   at VSCommon.IsNumber(String str) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 95
+   at VSCommon.PrintDiffLine(DiffPiece line) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 68
+   at VSCommon.PrintDiff2Values(String value1, String value2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\VSCommon.cs:line 39
+   at VS.PrintProductVSLine(VSLine vsLine, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 329
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, String cssStyle, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 293
+   at VS.PrintProductVSLine(String name, String value1, String value2, SmartVSValue[] smartVsValues, String comment, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 288
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 82
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-07-24 20:41:54,390 ERROR( 8) ProductVS - Application_Error - http://localhost:82/roductvs.net/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.Web.HttpException: The file '/roductvs.net/Glossary.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-24 20:41:54,492 ERROR( 9) ProductVS - Application_Error - http://localhost:82/oductvs.net/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.Web.HttpException: The file '/oductvs.net/Glossary.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-24 20:41:55,277 ERROR( 9) ProductVS - Application_Error - http://localhost:82/t/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.Web.HttpException: The file '/t/Glossary.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-24 20:41:55,857 ERROR( 5) ProductVS - Application_Error - http://localhost:82/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Glossary.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\Glossary.aspx.cs:line 39
+   at System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   at System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-07-24 20:41:58,093 ERROR( 9) ProductVS - Application_Error - http://localhost:82/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Glossary.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\Glossary.aspx.cs:line 39
+   at System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   at System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-07-24 20:42:46,545 ERROR( 9) ProductVS - Application_Error - http://localhost:82/Glossary.aspx?name=Orientation Sensor&v1=Yes&v2=&upc=041778610534
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Glossary.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\Glossary.aspx.cs:line 39
+   at System.Web.Util.CalliHelper.EventArgFunctionCaller(IntPtr fp, Object o, Object t, EventArgs e)
+   at System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   at System.Web.UI.Control.OnLoad(EventArgs e)
+   at System.Web.UI.Control.LoadRecursive()
+   at System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+2011-07-24 20:48:37,863 ERROR( 5) ProductVS - Application_Error - http://localhost:82/productvs.net/VS.aspx?upc1=097855018120&upc2=097855018113&p1=Logitech+Attack+3+Joystick&p2=Logitech+3D+Pro+Joystick
+System.Web.HttpException: The file '/productvs.net/VS.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-24 20:48:40,764 ERROR( 9) ProductVS - Application_Error - http://localhost:82/productvs.net/VS.aspx?upc1=097855018120&upc2=097855018113&p1=Logitech+Attack+3+Joystick&p2=Logitech+3D+Pro+Joystick
+System.Web.HttpException: The file '/productvs.net/VS.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-24 20:48:41,632 ERROR( 5) ProductVS - Application_Error - http://localhost:82/t/VS.aspx?upc1=097855018120&upc2=097855018113&p1=Logitech+Attack+3+Joystick&p2=Logitech+3D+Pro+Joystick
+System.Web.HttpException: The file '/t/VS.aspx' does not exist.
+   at System.Web.UI.Util.CheckVirtualFileExists(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[Footer]
+[Header]
+2011-07-26 22:49:34,031 ERROR( 6) ProductVS - Application_Error - URL: http://localhost:82/Category.aspx?id=abcat0300000 - Referer:http://localhost:82/Category.aspx?id=abcat0301014
+System.Web.HttpCompileException: d:\work\ProcutVS\ProcutVS\ProductVSWeb\Category.aspx.cs(57): error CS0029: Cannot implicitly convert type 'System.Text.StringBuilder' to 'string'
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+2011-07-26 22:53:34,921 ERROR( 8) ProductVS - Application_Error - URL: http://localhost:82/Category.aspx?id=abcat0300000 - Referer:http://localhost:82/Category.aspx?id=abcat0301014
+System.Web.HttpCompileException: d:\work\ProcutVS\ProcutVS\ProductVSWeb\Category.aspx.cs(57): error CS0029: Cannot implicitly convert type 'System.Text.StringBuilder' to 'string'
+   at System.Web.Compilation.BuildManager.CompileWebFile(VirtualPath virtualPath)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultInternal(VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVPathBuildResultWithNoAssert(HttpContext context, VirtualPath virtualPath, Boolean noBuild, Boolean allowCrossApp, Boolean allowBuildInPrecompile)
+   at System.Web.Compilation.BuildManager.GetVirtualPathObjectFactory(VirtualPath virtualPath, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.Compilation.BuildManager.CreateInstanceFromVirtualPath(VirtualPath virtualPath, Type requiredBaseType, HttpContext context, Boolean allowCrossApp, Boolean noAssert)
+   at System.Web.UI.PageHandlerFactory.GetHandlerHelper(HttpContext context, String requestType, VirtualPath virtualPath, String physicalPath)
+   at System.Web.HttpApplication.MaterializeHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+[Footer]
+[Header]
+2011-07-27 21:02:43,827 ERROR( 8) ProductVS - vs Page - URL: http://localhost:82/VS.aspx?upc1=821793010485&upc2=843163063013&title=HTC Inspire Mobile Phone - Black VS BlackBerry Torch 9800 Mobile Phone - Black - Referer:http://localhost:82/P.aspx?upc=821793010485&title=HTC+Inspire+Mobile+Phone+-+Black
+System.DivideByZeroException: Attempted to divide by zero.
+   at System.Decimal.FCallDivide(Decimal& result, Decimal d1, Decimal d2)
+   at System.Decimal.op_Division(Decimal d1, Decimal d2)
+   at ProcutVS.UnitConverter.TryConvert(SmartVSValue v1, SmartVSValue v2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 954
+   at ProcutVS.SmartVSValue.IsComparable(SmartVSValue smartVSValue1, SmartVSValue smartVSValue2) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 874
+   at ProcutVS.AttributeComparer.SmartCompare(AttributePair[] pairs) in D:\work\ProcutVS\ProcutVS\ProcutVS\AttributeComparer.cs:line 18
+   at VS.PrintVSSummary(Product product1, Product product2) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 283
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 69
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+[Footer]
+[Header]
+2011-08-02 23:16:06,041 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:16:06,041 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:16:29,998 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:16:30,155 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:16:30,384 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-02 23:16:30,385 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-02 23:16:41,281 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:16:41,281 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:18:01,681 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:22:40,398 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:22:40,463 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-02 23:22:49,222 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+[Footer]
+[Header]
+2011-08-02 23:33:45,950 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:33:45,950 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-02 23:34:07,992 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:34:07,992 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-02 23:34:08,087 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-02 23:34:08,089 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-02 23:34:14,077 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:34:14,444 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:34:37,340 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:34:38,875 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:34:38,956 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - Referer:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:34:39,862 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - Referer:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:39:36,310 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:42:47,511 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:47:23,648 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:47:25,226 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:48:05,770 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:48:15,221 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+[Footer]
+[Header]
+2011-08-02 23:48:29,684 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive, Refer:, BrowserSystem.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+2011-08-02 23:48:59,511 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive - URL: http://localhost:82/VS.aspx?upc1=884116051190&upc2=884483109050&p1=Dell+Studio+XPS+8100+Desktop+/+Intel&amp;%23174;+Core&amp;%23153;+i7+Processor+/+8GB+Memory&p2=Gateway+Desktop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+6GB+Memory+/+1TB+Hard+Drive
+[Footer]
+[Header]
+2011-08-05 23:32:26,227 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-05 23:32:26,227 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx
+2011-08-05 23:32:49,473 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-05 23:32:49,473 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx
+2011-08-05 23:32:49,695 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+2011-08-05 23:32:49,696 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/default.aspx - URL: http://localhost:82/default.aspx - Referer:http://localhost:82/
+[Footer]
+[Header]
+2011-08-05 23:40:35,222 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:41:33,817 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:05,049 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser: System.Web.Mobile.MobileCapabilities - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:11,293 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:11,500 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:11,917 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+[Footer]
+[Header]
+2011-08-05 23:42:12,511 INFO ( 5) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser: mozillafirefox - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:12,511 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser: safari1plus - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:23,882 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser: mozillafirefox - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:26,191 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser: safari1plus - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:42:35,309 INFO ( 5) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:35,464 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:35,481 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser: mozillafirefox - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:37,490 ERROR( 6) ProductVS - Remix Error - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+System.Net.WebException: The remote server returned an error: (403) Forbidden.
+   at System.Net.HttpWebRequest.GetResponse()
+   at Remix.Server.Get(String url) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 72
+2011-08-05 23:42:37,509 ERROR( 6) ProductVS - vs Page - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+System.ArgumentNullException: Value cannot be null.
+Parameter name: s
+   at System.IO.StringReader..ctor(String s)
+   at ProcutVS.UTF8XmlSerializer.Deserialize[T](String xml) in D:\work\ProcutVS\ProcutVS\ProcutVS\UTF8XmlSerializer.cs:line 52
+   at Remix.Server.GetProductByUpcs(String[] UPCs) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 174
+   at Remix.Server.GetProduct(String UPC) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 162
+   at ProcutVS.BestBuyFiller.Do(Product product) in D:\work\ProcutVS\ProcutVS\ProcutVS\BestBuyFiller.cs:line 22
+   at ProcutVS.ProductPool.GetAFilledProductByUPC(String UPC, CacheType cacheType) in D:\work\ProcutVS\ProcutVS\ProcutVS\Cache\ProductPool.cs:line 171
+   at ProcutVS.ProductPool.GetByUPC(String UPC, CacheType cacheType) in D:\work\ProcutVS\ProcutVS\ProcutVS\Cache\ProductPool.cs:line 99
+   at HTMLGenerator.GetBetterRanked(Product product, Int32 count, Int32 cols) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\HTMLGenerator.cs:line 219
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 227
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-08-05 23:42:37,517 ERROR(10) ProductVS - Remix Error - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+System.Net.WebException: The remote server returned an error: (403) Forbidden.
+   at System.Net.HttpWebRequest.GetResponse()
+   at Remix.Server.Get(String url) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 72
+2011-08-05 23:42:37,525 ERROR(10) ProductVS - vs Page - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+System.ArgumentNullException: Value cannot be null.
+Parameter name: s
+   at System.IO.StringReader..ctor(String s)
+   at ProcutVS.UTF8XmlSerializer.Deserialize[T](String xml) in D:\work\ProcutVS\ProcutVS\ProcutVS\UTF8XmlSerializer.cs:line 52
+   at Remix.Server.GetProductByUpcs(String[] UPCs) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 174
+   at Remix.Server.GetProduct(String UPC) in D:\work\ProcutVS\ProcutVS\ProcutVS\Remix\Server.cs:line 162
+   at ProcutVS.BestBuyFiller.Do(Product product) in D:\work\ProcutVS\ProcutVS\ProcutVS\BestBuyFiller.cs:line 22
+   at ProcutVS.ProductPool.GetAFilledProductByUPC(String UPC, CacheType cacheType) in D:\work\ProcutVS\ProcutVS\ProcutVS\Cache\ProductPool.cs:line 171
+   at ProcutVS.ProductPool.GetByUPC(String UPC, CacheType cacheType) in D:\work\ProcutVS\ProcutVS\ProcutVS\Cache\ProductPool.cs:line 99
+   at HTMLGenerator.GetBetterRanked(Product product, Int32 count, Int32 cols) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\App_Code\HTMLGenerator.cs:line 219
+   at VS.PrintProductVS(Product product1, Product product2, StringBuilder sb) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 227
+   at VS.Page_Load(Object sender, EventArgs e) in d:\work\ProcutVS\ProcutVS\ProductVSWeb\VS.aspx.cs:line 49
+2011-08-05 23:42:37,525 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:42:37,527 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:38,389 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:47,446 INFO ( 6) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser: safari1plus - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:42:49,587 INFO ( 6) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:42:49,665 INFO (15) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser: safari1plus - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:42:50,269 INFO (15) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+[Footer]
+[Header]
+2011-08-05 23:43:48,231 INFO (10) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser:safari1plus, IP:::1 - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:44:12,497 INFO (10) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/
+2011-08-05 23:44:12,557 INFO ( 8) ProductVS - BeginRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:safari1plus, IP:::1 - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+2011-08-05 23:44:14,271 INFO ( 8) ProductVS - EndRequest, URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - URL: http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black - Referer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black
+[Footer]
+[Header]
+2011-08-05 23:50:16,463 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-05 23:50:39,474 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-05 23:50:39,520 INFO (15) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-05 23:50:42,286 INFO (15) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-05 23:50:48,837 INFO (10) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser:mozillafirefox, IP:::1
+2011-08-05 23:50:50,933 INFO (10) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser:mozillafirefox, IP:::1
+2011-08-05 23:50:50,993 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:mozillafirefox, IP:::1
+2011-08-05 23:50:54,708 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:mozillafirefox, IP:::1
+2011-08-05 23:51:36,648 INFO (15) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-05 23:51:37,245 INFO (15) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-05 23:51:37,287 INFO (15) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-05 23:51:38,860 INFO (15) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-05 23:52:15,212 INFO (10) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser:mozillafirefox, IP:::1
+2011-08-05 23:52:16,268 INFO (10) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:, Browser:mozillafirefox, IP:::1
+2011-08-05 23:52:16,287 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:mozillafirefox, IP:::1
+2011-08-05 23:52:16,291 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Refer:http://localhost:82/VS.aspx?upc1=884116061038&upc2=883974842056&p1=Dell+Inspiron+Laptop+/+Intel&amp;%23174;+Core&amp;%23153;+i3+Processor+/+14&quot;+Display+/+4GB+Memory+-+Peacock+Blue&p2=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black, Browser:mozillafirefox, IP:::1
+[Footer]
+[Header]
+2011-08-07 21:10:07,585 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-08-07 21:10:30,034 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-29 22:23:40,650 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-08-29 22:23:40,650 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-08-29 22:24:05,996 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-08-29 22:24:05,996 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-08-29 22:24:06,310 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-29 22:24:06,311 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-29 22:25:27,163 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-29 22:25:50,746 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-29 22:25:50,805 INFO ( 7) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Refer:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Browser:safari1plus, IP:::1
+2011-08-29 22:25:52,953 INFO ( 7) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Refer:http://localhost:82/VS.aspx?upc1=883974842056&upc2=886111778287&p1=Toshiba+Satellite+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.6&quot;+Display+-+Black&p2=HP+Laptop+/+AMD+E-Series+Processor+/+15.6&quot;+Display+/+3GB+Memory+/+320GB+Hard+Drive+-+Charcoal+Gray, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-30 21:10:23,921 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/Search.aspx?keyword=sony, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-30 21:10:27,855 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/Search.aspx?keyword=sony, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-08-30 21:10:33,089 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:11:01,890 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:20:35,126 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:20:40,070 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:20:47,089 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242808591&title=Sony+Cyber-shot+14.1-Megapixel+Digital+Camera+-+Blue, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:20:51,090 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:21:21,120 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242808591&title=Sony+Cyber-shot+14.1-Megapixel+Digital+Camera+-+Blue, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:21:24,523 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-30 21:30:02,086 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:30:40,333 ERROR( 9) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'doc_title' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 9882.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:30:40,371 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-30 21:33:27,823 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:34:10,773 ERROR( 9) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'doc_title' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 9882.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:34:10,793 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/Search.aspx?keyword=sony, Browser:safari1plus, IP:::1
+2011-08-30 21:34:40,842 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:35:02,991 ERROR( 8) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:35:02,991 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:35:03,039 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:35:06,780 ERROR( 6) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:35:06,781 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:39:26,643 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:40:05,837 ERROR( 5) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:40:05,838 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:40:05,936 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:41:50,455 ERROR( 6) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:41:50,456 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:41:52,805 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:44:09,438 ERROR( 6) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:44:09,439 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:44:09,537 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:44:11,337 ERROR( 6) ProductVS - Remix Error - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+System.Xml.XmlException: The 'publisher' start tag on line 1 does not match the end tag of 'opinion'. Line 1, position 4926.
+   at System.Xml.XmlTextReaderImpl.Throw(Exception e)
+   at System.Xml.XmlTextReaderImpl.ThrowTagMismatch(NodeData startTag)
+   at System.Xml.XmlTextReaderImpl.ParseEndElement()
+   at System.Xml.XmlTextReaderImpl.ParseElementContent()
+   at System.Xml.XmlLoader.LoadNode(Boolean skipOverWhitespace)
+   at System.Xml.XmlLoader.LoadDocSequence(XmlDocument parentDoc)
+   at System.Xml.XmlDocument.Load(XmlReader reader)
+   at System.Xml.XmlDocument.LoadXml(String xml)
+   at ProcutVS.Appinions.Server.GetOpinions(String keywords) in D:\work\ProcutVS\ProcutVS\ProcutVS\Appinions\Server.cs:line 27
+2011-08-30 21:44:11,338 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-30 21:44:49,244 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:45:23,533 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:45:23,635 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:45:25,648 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-08-30 21:46:09,953 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:46:50,899 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:46:50,949 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:46:52,728 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:48:13,788 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:48:17,627 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:48:17,671 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:48:20,787 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:50:35,389 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:50:39,501 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=027242827509&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:50:39,547 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:50:41,657 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:51:17,881 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855076649&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech M315 Compact Wireless Optical Mouse - Steel Blue, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:51:19,218 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:51:33,011 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855076649&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech M315 Compact Wireless Optical Mouse - Steel Blue, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:51:43,154 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-08-30 21:51:43,202 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 21:51:43,204 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 21:58:33,129 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 21:58:40,913 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:03:13,305 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:03:20,411 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:04:01,311 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:04:07,226 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:04:35,289 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:04:40,872 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:05:03,629 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:05:09,861 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:05:48,867 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:05:54,440 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:06:49,382 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:06:54,948 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:07:21,179 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:07:27,457 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:07:55,568 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:00,787 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:09,449 INFO ( 8) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:20,783 INFO ( 8) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Cordless/Wireless&v1=Yes&v2=Yes&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:35,159 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=Battery Included&v1=Yes&v2=&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:43,568 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/Glossary.aspx?name=UPC&v1=097855066596&v2=097855061133&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:47,924 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=Battery Included&v1=Yes&v2=&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-08-30 22:08:56,206 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/Glossary.aspx?name=UPC&v1=097855066596&v2=097855061133&upc=097855066596, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-09-06 00:37:38,723 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-09-06 00:38:35,894 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-09-06 00:38:36,068 INFO ( 7) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-09-06 00:38:36,685 INFO ( 7) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-09-06 19:36:35,110 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-09-06 19:37:11,326 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/P.aspx?upc=097855066596&title=Sony+VAIO+E+Series+Laptop+/+Intel&amp;%23174;+Pentium&amp;%23174;+Processor+/+15.5&quot;+Display+-+Black, Browser:safari1plus, IP:::1
+2011-09-06 19:37:11,407 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+2011-09-06 19:37:11,410 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Refer:http://localhost:82/VS.aspx?upc1=097855066596&upc2=097855061133&title=Logitech M510 Wireless Laser Mouse - Light Silver VS Logitech V220 Cordless Optical Laptop Mouse - Scarlet Red, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-09-27 20:32:45,270 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-27 20:32:45,270 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-27 20:33:11,324 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-27 20:33:11,324 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-09-29 00:28:26,227 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-29 00:28:50,311 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-09-29 22:36:14,946 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-29 22:36:20,016 INFO ( 9) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-29 22:36:28,695 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-09-29 22:36:28,695 INFO ( 9) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-10-02 08:16:55,140 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-02 08:16:55,140 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-02 08:17:08,397 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-02 08:17:08,397 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-10-07 20:51:32,777 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-07 20:51:59,933 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-10-10 21:32:54,330 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-10 21:33:08,436 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+[Footer]
+[Header]
+2011-10-12 08:23:15,452 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-12 08:23:15,452 INFO ( 5) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-12 08:23:39,444 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-12 08:23:39,444 INFO ( 5) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:, Browser:safari1plus, IP:::1
+2011-10-12 08:23:39,690 INFO ( 6) ProductVS - BeginRequest - URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+2011-10-12 08:23:39,691 INFO ( 6) ProductVS - EndRequest - URL:http://localhost:82/default.aspx, Refer:http://localhost:82/, Browser:safari1plus, IP:::1
+[Footer]

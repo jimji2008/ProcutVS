@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="pw_api_results" type="pw_api_results" />
+  <xs:complexType name="pw_api_results">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="message" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="num_results" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="products" type="ArrayOfProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfProduct">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="product" nillable="true" type="product" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="product">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="url" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="id" type="xs:int" />
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="description" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="proscore" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="number_of_reviews" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="category" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="key_features" type="ArrayOfFacet" />
+      <xs:element minOccurs="0" maxOccurs="1" name="images" type="ArrayOfImage" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="proscons" type="CommunityReview" />
+      <xs:element minOccurs="0" maxOccurs="1" name="reviews" type="ArrayOfReview" />
+      <xs:element minOccurs="0" maxOccurs="1" name="tags" type="ArrayOfTag" />
+      <xs:element minOccurs="0" maxOccurs="1" name="competitors" type="ArrayOfCompetitor" />
+      <xs:element minOccurs="0" maxOccurs="1" name="related" type="ArrayOfProduct" />
+      <xs:element minOccurs="0" maxOccurs="1" name="skus" type="ArrayOfSku" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfFacet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Facet" nillable="true" type="Facet" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Facet">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="values" type="ArrayOfString" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="value" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfImage">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Image" nillable="true" type="Image" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Image">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="rawimage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="largeimage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mediumimage" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="smallimage" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommunityReview">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="pros" type="ArrayOfCommunityReviewStatement" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="cons" type="ArrayOfCommunityReviewStatement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCommunityReviewStatement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="statement" nillable="true" type="CommunityReviewStatement" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CommunityReviewStatement">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="text" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="id" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="score" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="submitter" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfReview">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Review" nillable="true" type="Review" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Review">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="user" type="ReviewUser" />
+      <xs:element minOccurs="0" maxOccurs="1" name="date" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="proscons" type="CommunityReview" />
+      <xs:element minOccurs="0" maxOccurs="1" form="unqualified" name="comments" type="ArrayOfString1" />
+      <xs:element minOccurs="0" maxOccurs="1" name="tags" type="ArrayOfTag" />
+      <xs:element minOccurs="0" maxOccurs="1" name="winning_competitors" type="ProductList" />
+      <xs:element minOccurs="0" maxOccurs="1" name="losing_competitors" type="ProductList" />
+      <xs:element minOccurs="0" maxOccurs="1" name="helpfulness" type="ReviewHelpfulness" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReviewUser">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="url" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfString1">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" form="unqualified" name="comment" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfTag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Tag" nillable="true" type="Tag" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Tag">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="1" maxOccurs="1" name="number_of_taggers" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ProductList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="products" type="ArrayOfProduct" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ReviewHelpfulness">
+    <xs:sequence>
+      <xs:element minOccurs="1" maxOccurs="1" name="number_helpful" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="number_unhelpful" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfCompetitor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Competitor" nillable="true" type="Competitor" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Competitor">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="competitor_product" type="product" />
+      <xs:element minOccurs="1" maxOccurs="1" name="votes" type="xs:int" />
+      <xs:element minOccurs="1" maxOccurs="1" name="percentprefer" type="xs:double" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ArrayOfSku">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="sku" nillable="true" type="sku" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="sku">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="1" name="title" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="upc" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="mpn" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="asin" type="xs:string" />
+      <xs:element minOccurs="0" maxOccurs="1" name="ean" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

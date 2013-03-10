@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8E57CD85-24F2-4627-95E9-AA05FB2AEA39}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ProcutVS</RootNamespace>
+    <AssemblyName>ProcutVS</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DiffPlex">
+      <HintPath>..\extra\DiffPlex.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\extra\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\extra\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="SgmlReaderDll">
+      <HintPath>..\extra\SgmlReaderDll.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Amazon.ECS.Addons\AmazonHeader.cs" />
+    <Compile Include="Amazon.ECS.Addons\AmazonSigningEndpointBehavior.cs" />
+    <Compile Include="Amazon.ECS.Addons\AmazonSigningMessageInspector.cs" />
+    <Compile Include="Appinions\Author.cs" />
+    <Compile Include="Appinions\Authors.cs" />
+    <Compile Include="Appinions\Opholder.cs" />
+    <Compile Include="Appinions\Opinion.cs" />
+    <Compile Include="Appinions\Opinions.cs" />
+    <Compile Include="Appinions\Payload.cs" />
+    <Compile Include="Appinions\Payloads.cs" />
+    <Compile Include="Appinions\Publisher.cs" />
+    <Compile Include="Appinions\RootObject.cs" />
+    <Compile Include="Appinions\Server.cs" />
+    <Compile Include="Appinions\Topic.cs" />
+    <Compile Include="Appinions\Topics.cs" />
+    <Compile Include="AttributeComparer.cs" />
+    <Compile Include="BestBuyFiller.cs" />
+    <Compile Include="Cache\CategoryPool.cs" />
+    <Compile Include="BestBuySearchProductsFiller.cs" />
+    <Compile Include="Logger.cs" />
+    <Compile Include="ProductWikiFiller.cs" />
+    <Compile Include="HotProductPairManager.cs" />
+    <Compile Include="Html2Xml.cs" />
+    <Compile Include="AmazonFiller.cs" />
+    <Compile Include="BlogPostFiller.cs" />
+    <Compile Include="BestBuySpecFiller.cs" />
+    <Compile Include="BestBuyReviewsFiller.cs" />
+    <Compile Include="BestBuyCategoryProductsFiller.cs" />
+    <Compile Include="DataAccess.cs" />
+    <Compile Include="Product.cs" />
+    <Compile Include="Cache\ProductPool.cs" />
+    <Compile Include="ProductWiki\schema.cs">
+      <DependentUpon>schema.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="ProductWiki\Server.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankedProductManager.cs" />
+    <Compile Include="Remix\Category.cs" />
+    <Compile Include="Remix\Reviews.cs" />
+    <Compile Include="Remix\Product.cs" />
+    <Compile Include="Remix\Server.cs" />
+    <Compile Include="Remix\Store.cs" />
+    <Compile Include="UTF8XmlSerializer.cs" />
+    <Compile Include="Service References\Amazon.ECS\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SideBySideDiffBuilder2.cs" />
+    <Compile Include="Yahoo\QuestionResponse.cs" />
+    <Compile Include="Yahoo\Server.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProductWiki\schema.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\Amazon.ECS\AWSECommerceService.wsdl" />
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.BrowseNodeLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CartAddResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CartClearResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CartCreateResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CartGetResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CartModifyResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CustomerContentLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.CustomerContentSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.HelpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.ItemLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.ItemSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.ListLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.ListSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.MultiOperationResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.SellerListingLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.SellerListingSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.SellerLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.SimilarityLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.TagLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.TransactionLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.VehiclePartLookupResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.VehiclePartSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\Amazon.ECS\ProcutVS.Amazon.ECS.VehicleSearchResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\Amazon.ECS\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Amazon.ECS\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Amazon.ECS\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\Amazon.ECS\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

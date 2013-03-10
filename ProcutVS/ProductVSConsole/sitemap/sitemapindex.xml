@@ -1,0 +1,16 @@
+﻿<sitemapindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/siteindex.xsd"
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<sitemap>
+		<loc>http://bestaudioplayer.com/sitemap-misc.xml</loc>
+		<lastmod>2011-05-20T12:56:42+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://bestaudioplayer.com/sitemap-post-2011-05.xml</loc>
+		<lastmod>2011-05-20T12:56:42+00:00</lastmod>
+	</sitemap>
+	<sitemap>
+		<loc>http://bestaudioplayer.com/sitemap-page-2011-05.xml</loc>
+		<lastmod>2011-05-20T12:56:42+00:00</lastmod>
+	</sitemap>
+</sitemapindex>

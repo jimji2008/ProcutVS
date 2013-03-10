@@ -1,0 +1,204 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /> 
+<title>Untitled Document</title> 
+<script type="text/javascript" src="scripts/jquery-1.4.1.min.js"></script>
+<script>
+
+/*
+ * Copyright (c) 2007 Josh Bush (digitalbush.com)
+ * 
+ * Permission is hereby granted, free of charge, to any person
+ * obtaining a copy of this software and associated documentation
+ * files (the "Software"), to deal in the Software without
+ * restriction, including without limitation the rights to use,
+ * copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following
+ * conditions:
+
+ * The above copyright notice and this permission notice shall be
+ * included in all copies or substantial portions of the Software.
+ * 
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+ * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+ * OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+ * HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+ * WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+ * OTHER DEALINGS IN THE SOFTWARE. 
+ */
+ 
+/*
+ * Version: Beta 1
+ * Release: 2007-06-01
+ */ 
+(function($) {
+	var map=new Array();
+	$.Watermark = {
+		ShowAll:function(){
+			for (var i=0;i<map.length;i++){
+				if(map[i].obj.val()==""){
+					map[i].obj.val(map[i].text);					
+					map[i].obj.css("color",map[i].WatermarkColor);
+				}else{
+				    map[i].obj.css("color",map[i].DefaultColor);
+				}
+			}
+		},
+		HideAll:function(){
+			for (var i=0;i<map.length;i++){
+				if(map[i].obj.val()==map[i].text)
+					map[i].obj.val("");					
+			}
+		}
+	}
+	
+	$.fn.Watermark = function(text,color) {
+		if(!color)
+			color="#aaa";
+		return this.each(
+			function(){		
+				var input=$(this);
+				var defaultColor=input.css("color");
+				map[map.length]={text:text,obj:input,DefaultColor:defaultColor,WatermarkColor:color};
+				function clearMessage(){
+					if(input.val()==text)
+						input.val("");
+					input.css("color",defaultColor);
+				}
+
+				function insertMessage(){
+					if(input.val().length==0 || input.val()==text){
+						input.val(text);
+						input.css("color",color);	
+					}else
+						input.css("color",defaultColor);				
+				}
+
+				input.focus(clearMessage);
+				input.blur(insertMessage);								
+				input.change(insertMessage);
+				
+				insertMessage();
+			}
+		);
+	};
+})(jQuery);(function($) {
+	var map=new Array();
+	$.Watermark = {
+		ShowAll:function(){
+			for (var i=0;i<map.length;i++){
+				if(map[i].obj.val()==""){
+					map[i].obj.val(map[i].text);					
+					map[i].obj.css("color",map[i].WatermarkColor);
+				}else{
+				    map[i].obj.css("color",map[i].DefaultColor);
+				}
+			}
+		},
+		HideAll:function(){
+			for (var i=0;i<map.length;i++){
+				if(map[i].obj.val()==map[i].text)
+					map[i].obj.val("");					
+			}
+		}
+	}
+	
+	$.fn.Watermark = function(text,color) {
+		if(!color)
+			color="#aaa";
+		return this.each(
+			function(){		
+				var input=$(this);
+				var defaultColor=input.css("color");
+				map[map.length]={text:text,obj:input,DefaultColor:defaultColor,WatermarkColor:color};
+				function clearMessage(){
+					if(input.val()==text)
+						input.val("");
+					input.css("color",defaultColor);
+				}
+
+				function insertMessage(){
+					if(input.val().length==0 || input.val()==text){
+						input.val(text);
+						input.css("color",color);	
+					}else
+						input.css("color",defaultColor);				
+				}
+
+				input.focus(clearMessage);
+				input.blur(insertMessage);								
+				input.change(insertMessage);
+				
+				insertMessage();
+			}
+		);
+	};
+})(jQuery);
+
+
+jQuery(function($){
+   $("#searchInput").Watermark("First");
+});
+</script>
+<style type="text/css"> 
+body {
+	font: Arial, Helvetica, sans-serif normal 10px;
+	background: #222;
+}
+fieldset.search {
+	border: none;
+	width: 243px;
+	margin: 0 auto;
+	background: #222;
+}
+.search input, .search button {
+	border: none;
+	float: left;
+}
+.search input.box {
+	color: #fff;
+	font-size: 1.2em;
+	width: 190px;
+	height: 30px;
+	padding: 8px 5px 0;
+	background: #616161 url(search_bg.gif) no-repeat left top;
+	margin-right: 5px;
+}
+.search input.box:focus {
+	background: #616161 url(search_bg.gif) no-repeat left -38px;
+	outline: none;
+}
+.search button.btn {
+	width: 38px;
+	height: 38px;
+	cursor: pointer;
+	text-indent: -9999px;
+	background: #fbc900 url(search_bg.gif) no-repeat top right;	
+}
+.search button.btn:hover {
+	background: #fbc900 url(search_bg.gif) no-repeat bottom right;	
+}
+</style> 
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="ie.css" />
+<![endif]--> 
+</head> 
+ 
+<body> 
+<h1 style="text-align:center; color: #fff;font-family:Arial, Helvetica, sans-serif;">Styling Up Your Search Form with CSS - Demo</h1> 
+<form method="get" id="searchform" action="http://www.sohtanaka.com/"> 
+<fieldset class="search"> 
+	<input id='searchInput' type="text" class="box" /> 
+	<button class="btn" title="Submit Search">Search</button> 
+</fieldset> 
+</form> 
+<p style="text-align:center; font: 11px Arial, Helvetica, sans-serif normal; color: #fff;"><a href="http://www.sohtanaka.com/web-design/styling-input-search-form-css/" style="color: #fff;">Styling Up Your Search Form with CSS</a> by Soh Tanaka</p> 
+ 
+ 
+</body> 
+</html> 
